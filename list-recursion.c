@@ -1,10 +1,12 @@
 #include <assert.h>
 
-/* Our list node definition */
-struct node {
-    int data;
-    struct node * next;
-};
+#include "list-recursion.h"
+
+#ifdef UNIT_TESTING
+#include <stddef.h>
+// Overrides library functions, must be the last include
+#include <cmockery/cmockery_override.h>
+#endif // UNIT_TESTING
 
 /* Sum all the elements recursively */
 int sum(struct node * head) {
